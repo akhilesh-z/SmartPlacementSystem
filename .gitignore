@@ -1,0 +1,25 @@
+# Eclipse
+.metadata/
+.settings/
+.project
+.classpath
+
+# Build
+bin/
+build/
+target/
+
+# Tomcat
+Servers/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+
+# Temporary
+tmp/
