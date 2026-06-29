@@ -86,11 +86,18 @@ for(Job j:jobs){
 
 <td>
 
-<a href="editJob.jsp?id=<%=j.getJobId()%>">Edit</a>
+<a href="editJob?id=<%=j.getJobId()%>" class="btn btn-warning btn-sm">
+    Edit
+</a>
 
 |
 
-<a href="deleteJob?id=<%=j.getJobId()%>">Delete</a>
+<a href="deleteJob?id=<%=j.getJobId()%>"
+   class="btn btn-danger btn-sm"
+   onclick="return confirm('Are you sure you want to delete this job?');">
+    Delete
+</a>
+
 
 </td>
 

@@ -21,7 +21,7 @@ public class DownloadResumeServlet extends HttpServlet {
 
         }
 
-        String uploadPath = getServletContext().getRealPath("/uploads");
+        String uploadPath = "C:/PlacementUploads";
 
         File file = new File(uploadPath, fileName);
 
