@@ -7,9 +7,9 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-	private static final String url = System.getenv("DB_URL");
-	private static final String username = System.getenv("DB_USER");
-	private static final String password = System.getenv("DB_PASSWORD");
+	private static final String url = "jdbc:postgresql://localhost:5432/placement_db";
+	private static final String username = "postgres";
+	private static final String password = "root";
     public static Connection getConnection() {
 
         Connection con = null;
