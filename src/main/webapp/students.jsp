@@ -49,7 +49,18 @@ th{
     background:#007bff;
     color:white;
 }
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+   
+    font-weight:bold;
+}
 
+.back:hover{
+    text-decoration:underline;
+}
 a:hover{
 background:#0056b3;
 }
@@ -148,6 +159,7 @@ Delete
 %>
 
 </table>
+<a href="admindashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 
 </body>

@@ -38,6 +38,19 @@ text-decoration:none;
 border-radius:5px;
 font-size:18px;
 }
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+
 
 table{
     margin:auto;
@@ -115,6 +128,7 @@ for(Job job : jobs){
 %>
 
 </table>
+<a href="studentdashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 
 </body>

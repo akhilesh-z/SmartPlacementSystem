@@ -61,6 +61,18 @@ th{
 a:hover{
 background:#0056b3;
 }
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    
+    font-weight:bold;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
 </style>
 </head>
 
@@ -79,7 +91,7 @@ if (ad == null) {
 }
 %>
 
-<h2 style="font-size:xx-large; ">Applications</h2>
+<h2 style="font-size:xx-large;margin:30px; ">Applications</h2>
 
 <div class="container">
 <table border="1">
@@ -94,7 +106,7 @@ if (ad == null) {
 
 <th>Status</th>
 
-<th>Action</th>
+
 
 </tr>
 
@@ -112,15 +124,7 @@ for(Application a:apps){
 
 <td><%=a.getStatus()%></td>
 
-<td>
 
-<a href="approve?id=<%=a.getApplicationId()%>">Approve</a>
-
-|
-
-<a href="reject?id=<%=a.getApplicationId()%>">Reject</a>
-
-</td>
 
 </tr>
 
@@ -129,6 +133,7 @@ for(Application a:apps){
 %>
 
 </table>
+<a href="admindashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 </body>
 

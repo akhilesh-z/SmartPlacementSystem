@@ -23,7 +23,18 @@ border-radius:10px;
 box-shadow:0 0 10px gray;
 text-align:center;
 }
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:#007BFF;
+    font-weight:bold;
+}
 
+.back:hover{
+    text-decoration:underline;
+}
 table{
     margin:auto;
     width:100%;
@@ -53,7 +64,16 @@ th{
 
 <h2>Manage Jobs</h2>
 
-<a href="adminaddjob.jsp">Add Job</a>
+<a href="adminaddjob.jsp" style="
+display:block;
+padding:15px;
+margin:15px;
+background:#007BFF;
+color:white;
+text-decoration:none;
+border-radius:5px;
+font-size:18px;
+">Add Job</a>
 
 <table border="1">
 
@@ -108,7 +128,7 @@ for(Job j:jobs){
 %>
 
 </table>
-
+<a href="admindashboard.jsp" class="back">← Back to Dashboard</a>
 </div>	
 
 </body>

@@ -26,17 +26,20 @@ border-radius:10px;
 box-shadow:0 0 10px gray;
 text-align:center;
 }
-
-a{
-display:block;
-padding:15px;
-margin:15px;
-background:#007BFF;
-color:white;
-text-decoration:none;
-border-radius:5px;
-font-size:18px;
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:#007BFF;
+    font-weight:bold;
 }
+
+.back:hover{
+    text-decoration:underline;
+}
+
+
 
 table{
     margin:auto;
@@ -54,9 +57,7 @@ th{
     color:white;
 }
 
-a:hover{
-background:#0056b3;
-}
+
 </style>
 
 </head>
@@ -123,6 +124,7 @@ for(Application a:list){
 %>
 
 </table>
+<a href="studentdashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 
 </body>

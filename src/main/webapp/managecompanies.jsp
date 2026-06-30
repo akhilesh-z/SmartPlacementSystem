@@ -41,7 +41,7 @@ font-size:18px;
 
 table{
     margin:auto;
-    width:100%;
+    width:80%;
     border-collapse:collapse;
 }
 
@@ -57,6 +57,18 @@ th{
 
 a:hover{
 background:#0056b3;
+}
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    
+    font-weight:bold;
+}
+
+.back:hover{
+    text-decoration:underline;
 }
 </style>
 </head>
@@ -76,7 +88,7 @@ if (ad == null) {
 }
 %>
 
-<h2 style="font-size:xx-large;">Companies</h2>
+<h2 style="font-size:xx-large;margin:30px">Companies</h2>
 
 <div class="container">
 
@@ -88,6 +100,7 @@ if (ad == null) {
 <th>ID</th>
 <th>Name</th>
 <th>Email</th>
+<th>Action</th>
 
 </tr>
 
@@ -106,7 +119,7 @@ for(Company c:companies){
 
 <a href="admineditcompany.jsp?id=<%=c.getCompanyId()%>">Edit</a>
 
-|
+	
 
 <a href="admindeleteCompany?id=<%=c.getCompanyId()%>">Delete</a>
 
@@ -119,6 +132,7 @@ for(Company c:companies){
 %>
 
 </table>
+<a href="admindashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 
 </body>

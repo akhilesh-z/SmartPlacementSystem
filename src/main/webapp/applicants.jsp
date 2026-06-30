@@ -30,6 +30,18 @@ border-radius:10px;
 box-shadow:0 0 10px gray;
 text-align:center;
 }
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+   
+    font-weight:bold;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
 
 a{
 display:block;
@@ -135,7 +147,7 @@ Select
 
 </a>
 
-|
+
 
 <a href="<%=request.getContextPath()%>/rejectStudent?applicationId=<%=a.getApplicationId()%>">
 
@@ -154,6 +166,7 @@ Reject
 %>
 
 </table>
+<a href="companydashboard.jsp" class="back">← Back to Dashboard</a>
 </div>
 
 
