@@ -32,7 +32,13 @@ public class UploadResumeServlet extends HttpServlet{
 
        
       
-        String uploadPath = "C:/PlacementUploads";
+        String uploadPath = System.getenv("UPLOAD_PATH");
+
+        if (uploadPath == null || uploadPath.isBlank()) {
+
+            uploadPath = "C:/PlacementUploads";
+
+        }
                 
         System.out.println(uploadPath);
         String originalName = part.getSubmittedFileName();
