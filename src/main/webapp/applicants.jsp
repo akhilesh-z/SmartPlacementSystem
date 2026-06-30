@@ -133,8 +133,9 @@ for(Applicant a:list){
 
 <td>
 <%=a.getResume()%>
-<a href="downloadResume?file=<%=a.getResume()%>" target="_blank">
-View Resume
+<a href="<%=a.getResume()%>"
+   target="_blank">
+    View Resume
 </a>
 
 </td>

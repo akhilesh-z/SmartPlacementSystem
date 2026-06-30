@@ -2,9 +2,13 @@ package com.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.dao.UserDAO;
 import com.model.Student;
+import com.util.CloudinaryUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -65,12 +69,18 @@ public class UploadResumeServlet extends HttpServlet{
         }
         
         System.out.println(fileName);
-        part.write(uploadPath+File.separator+fileName);
+        Cloudinary cloudinary = CloudinaryUtil.getInstance();
+
+        Map uploadResult = cloudinary.uploader().upload(
+                part.getInputStream(),
+                ObjectUtils.emptyMap());
+
+        String resumeUrl = uploadResult.get("secure_url").toString();
         System.out.println("Saved File: " + fileName);
 
         UserDAO dao=new UserDAO();
 
-        dao.updateResume(student.getStudentId(),fileName);
+        dao.updateResume(student.getStudentId(), resumeUrl);
 
         response.sendRedirect("profile?upload=success");
 

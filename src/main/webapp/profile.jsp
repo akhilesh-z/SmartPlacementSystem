@@ -199,8 +199,9 @@ if(student.getResume()!=null){
 %>
 
 Current Resume
-<a href="downloadResume?file=<%=student.getResume()%>" target="_blank">
-View Resume
+<a href="<%=student.getResume()%>"
+   target="_blank">
+    View Resume
 </a>
 
 <%
