@@ -1,6 +1,6 @@
 package com.controller;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -36,15 +36,6 @@ public class UploadResumeServlet extends HttpServlet{
 
        
       
-        String uploadPath = System.getenv("UPLOAD_PATH");
-
-        if (uploadPath == null || uploadPath.isBlank()) {
-
-            uploadPath = "C:/PlacementUploads";
-
-        }
-                
-        System.out.println(uploadPath);
         String originalName = part.getSubmittedFileName();
 
         String extension = originalName.substring(originalName.lastIndexOf("."));
@@ -54,35 +45,23 @@ public class UploadResumeServlet extends HttpServlet{
                 + System.currentTimeMillis()
                 + extension;
 
-        File file = new File(uploadPath, fileName);
-
-        part.write(file.getAbsolutePath());
-
-        System.out.println(file.getAbsolutePath());
-        System.out.println(file.exists());
-        File uploadDir=new File(uploadPath);
-
-        if(!uploadDir.exists()){
-
-        	uploadDir.mkdirs();
-
-        }
-        
-        System.out.println(fileName);
         Cloudinary cloudinary = CloudinaryUtil.getInstance();
 
         Map uploadResult = cloudinary.uploader().upload(
                 part.getInputStream(),
-                ObjectUtils.emptyMap());
+                ObjectUtils.asMap(
+                        "public_id", fileName,
+                        "resource_type", "raw"
+                ));
 
         String resumeUrl = uploadResult.get("secure_url").toString();
-        System.out.println("Saved File: " + fileName);
 
-        UserDAO dao=new UserDAO();
+        UserDAO dao = new UserDAO();
 
         dao.updateResume(student.getStudentId(), resumeUrl);
 
         response.sendRedirect("profile?upload=success");
+        
 
     }
 
