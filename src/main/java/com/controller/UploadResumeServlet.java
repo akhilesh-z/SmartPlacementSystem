@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
@@ -40,19 +41,27 @@ public class UploadResumeServlet extends HttpServlet{
 
         String extension = originalName.substring(originalName.lastIndexOf("."));
 
+        Cloudinary cloudinary = CloudinaryUtil.getInstance();
+        
+        File temp = File.createTempFile("resume_", ".pdf");
+
+        part.write(temp.getAbsolutePath());
+
+        Map uploadResult = cloudinary.uploader().upload(
+                temp,
+                ObjectUtils.asMap(
+                        "resource_type", "raw"
+                ));
+
+        temp.delete();
+        
         String fileName = student.getStudentId()
                 + "_"
                 + System.currentTimeMillis()
                 + extension;
 
-        Cloudinary cloudinary = CloudinaryUtil.getInstance();
-
-        Map uploadResult = cloudinary.uploader().upload(
-                part.getInputStream(),
-                ObjectUtils.asMap(
-                        "public_id", fileName,
-                        "resource_type", "raw"
-                ));
+        
+       
 
         String resumeUrl = uploadResult.get("secure_url").toString();
 
